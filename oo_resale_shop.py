@@ -4,14 +4,13 @@ class ResaleShop:
     def __init__(self, inventory: list = []) -> None:
         self.inventory = inventory
     
-    def buy(self, newComputer: dict):
+    def buy(self, newComputer: object):
         listLen = len(self.inventory)
         item_ID = listLen + 1
-        computer = cp.Computer()
-        computer.createComputer(newComputer)
-        computer.item_ID = item_ID
-        self.inventory.append(computer)
-        return computer.item_ID
+        newComputer.item_ID = item_ID
+        self.inventory.append(newComputer)
+        return newComputer.item_ID
+    
         
 
     
@@ -30,6 +29,7 @@ class ResaleShop:
     def print_inventory(self):
         listLen = len(self.inventory)
         if listLen != 0:
+            print("Inventory:")
             for i in range(0, listLen):
                 computer = self.inventory[i]
                 print(computer)
